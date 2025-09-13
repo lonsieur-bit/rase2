@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Almarai', sans-serif !important;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Almarai', sans-serif !important;
+}
+
+html {
+  font-family: 'Almarai', sans-serif !important;
+}
+
+.font-almarai {
+  font-family: 'Almarai', sans-serif !important;
+}
+
+/* Ensure all text elements use Almarai */
+h1, h2, h3, h4, h5, h6, p, span, div, button, input, select, textarea, label {
+  font-family: 'Almarai', sans-serif !important;
+}
+
+/* RGB Animation for borders */
+@keyframes rgb-border {
+  0% { background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #fe01ff); }
+  16.66% { background: linear-gradient(90deg, #ff7f00, #ffff00, #00ff00, #0000ff, #fe01ff, #ff0000); }
+  33.33% { background: linear-gradient(90deg, #ffff00, #00ff00, #0000ff, #fe01ff, #ff0000, #ff7f00); }
+  50% { background: linear-gradient(90deg, #00ff00, #0000ff, #fe01ff, #ff0000, #ff7f00, #ffff00); }
+  66.66% { background: linear-gradient(90deg, #0000ff, #fe01ff, #ff0000, #ff7f00, #ffff00, #00ff00); }
+  83.33% { background: linear-gradient(90deg, #fe01ff, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff); }
+  100% { background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #fe01ff); }
+}
+
+.animate-rgb-border {
+  animation: rgb-border 1.5s linear infinite;
+}
+
+/* RGB Animation for text */
+@keyframes rgb-text {
+  0% { color: #ff0000; }
+  16.66% { color: #ff7f00; }
+  33.33% { color: #ffff00; }
+  50% { color: #00ff00; }
+  66.66% { color: #0000ff; }
+  83.33% { color: #fe01ff; }
+  100% { color: #ff0000; }
+}
+
+.animate-rgb-text {
+  animation: rgb-text 1.5s linear infinite;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KO Gaming Store - متجر أجهزة الألعاب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Almarai', sans-serif !important; }
+        body { 
+            background: #181918; 
+            color: white; 
+            text-align: center; 
+            padding: 50px; 
+            margin: 0;
+        }
+        .logo { 
+            color: #fe01ff; 
+            font-size: 4em; 
+            margin-bottom: 20px; 
+            font-weight: 800;
+        }
+        .message { 
+            font-size: 1.8em; 
+            margin-bottom: 30px; 
+            opacity: 0.9;
+        }
+        .status { 
+            background: linear-gradient(45deg, #fe01ff, #ff6b6b); 
+            padding: 15px 30px; 
+            border-radius: 10px; 
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .links {
+            margin-top: 40px;
+        }
+        .links a {
+            color: #fe01ff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            border: 2px solid #fe01ff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .links a:hover {
+            background: #fe01ff;
+            color: white;
+        }
+        .server-info {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(254, 1, 255, 0.1);
+            border-radius: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">KO</div>
+    <div class="message">🚀 متجر أجهزة الألعاب</div>
+    <div class="status">الخادم يعمل بنجاح!</div>
+    
+    <div class="links">
+        <a href="/admin/">لوحة التحكم</a>
+        <a href="/api/health">فحص الخادم</a>
+    </div>
+    
+    <div class="server-info">
+        <h3>معلومات الخادم</h3>
+        <p>🌐 النطاق: www.k-o.site</p>
+        <p>⚡ الحالة: متصل</p>
+        <p>🔧 الخادم: Hostinger VPS</p>
+        <p id="timestamp">⏰ الوقت: <span></span></p>
+    </div>
+
+    <script>
+        // Update timestamp
+        document.getElementById('timestamp').querySelector('span').textContent = new Date().toLocaleString('ar-SA');
+        
+        // Test API connection
+        fetch('/api/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('API Response:', data);
+                if (data.status === 'OK') {
+                    document.querySelector('.status').innerHTML = '✅ الخادم والAPI يعملان بنجاح!';
+                }
+            })
+            .catch(error => {
+                console.error('API Error:', error);
+                document.querySelector('.status').innerHTML = '⚠️ الموقع يعمل - API قيد التحميل...';
+            });
+    </script>
+</body>
+</html>
